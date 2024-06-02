@@ -6,85 +6,85 @@ client.on('connect', function () {
     console.log('Connected to Mosquitto MQTT broker');
 
     // Subscribe from topic
-    client.subscribe('hikingMetrics');
+    client.subscribe('hikingMetrics/' + loginUserId);
 
-    // Test sample and publishing (Need to change to an annotation form.)
-    const dummyMetrics = [
-      {
-        userId: 'BZPGGB',
-        date: '2024-04-30',
-        calories: { total: 111 },
-        steps: { total: 2076 },
-        duration: { total: 1640000 },
-        distance: {
-          total: 1.74,
-          veryActive: 0.29,
-          moderatelyActive: 0.61,
-          lightlyActive: 0.84,
-          sedentaryActive: 0
-        }
-      },
-      {
-        userId: 'AAPGGB',
-        date: '2024-05-01',
-        calories: { total: 242 },
-        steps: { total: 4256 },
-        duration: { total: 3077000 },
-        distance: {
-          total: 5.18,
-          veryActive: 2.93,
-          moderatelyActive: 1.19,
-          lightlyActive: 0.98,
-          sedentaryActive: 0
-        }
-      },
-      {
-        userId: 'TC15DF',
-        date: '2024-05-01',
-        calories: { total: 150 },
-        steps: { total: 5000 },
-        duration: { total: 3088800 },
-        distance: {
-          total: 1.74,
-          veryActive: 0.29,
-          moderatelyActive: 0.61,
-          lightlyActive: 0.84,
-          sedentaryActive: 0
-        }
-      },
-      {
-        userId: 'PP01C5',
-        date: '2024-05-03',
-        calories: { total: 105 },
-        steps: { total: 5000 },
-        duration: { total: 4077000 },
-        distance: {
-          total: 6.12,
-          veryActive: 2.93,
-          moderatelyActive: 1.19,
-          lightlyActive: 0.98,
-          sedentaryActive: 0
-        }
-      },
-      {
-        userId: 'RE10GB',
-        date: '2024-05-04',
-        calories: { total: 300 },
-        steps: { total: 8000 },
-        duration: { total: 8077000 },
-        distance: {
-          total: 6.12,
-          veryActive: 2.93,
-          moderatelyActive: 1.19,
-          lightlyActive: 0.98,
-          sedentaryActive: 0
-        }
-      }
-    ]
+    // // Test sample and publishing (Need to change to an annotation form.)
+    // const dummyMetrics = [
+    //   {
+    //     userId: 'BZPGGB',
+    //     date: '2024-04-30',
+    //     calories: { total: 111 },
+    //     steps: { total: 2076 },
+    //     duration: { total: 1640000 },
+    //     distance: {
+    //       total: 1.74,
+    //       veryActive: 0.29,
+    //       moderatelyActive: 0.61,
+    //       lightlyActive: 0.84,
+    //       sedentaryActive: 0
+    //     }
+    //   },
+    //   {
+    //     userId: 'AAPGGB',
+    //     date: '2024-05-01',
+    //     calories: { total: 242 },
+    //     steps: { total: 4256 },
+    //     duration: { total: 3077000 },
+    //     distance: {
+    //       total: 5.18,
+    //       veryActive: 2.93,
+    //       moderatelyActive: 1.19,
+    //       lightlyActive: 0.98,
+    //       sedentaryActive: 0
+    //     }
+    //   },
+    //   {
+    //     userId: 'TC15DF',
+    //     date: '2024-05-01',
+    //     calories: { total: 150 },
+    //     steps: { total: 5000 },
+    //     duration: { total: 3088800 },
+    //     distance: {
+    //       total: 1.74,
+    //       veryActive: 0.29,
+    //       moderatelyActive: 0.61,
+    //       lightlyActive: 0.84,
+    //       sedentaryActive: 0
+    //     }
+    //   },
+    //   {
+    //     userId: 'PP01C5',
+    //     date: '2024-05-03',
+    //     calories: { total: 105 },
+    //     steps: { total: 5000 },
+    //     duration: { total: 4077000 },
+    //     distance: {
+    //       total: 6.12,
+    //       veryActive: 2.93,
+    //       moderatelyActive: 1.19,
+    //       lightlyActive: 0.98,
+    //       sedentaryActive: 0
+    //     }
+    //   },
+    //   {
+    //     userId: 'RE10GB',
+    //     date: '2024-05-04',
+    //     calories: { total: 300 },
+    //     steps: { total: 8000 },
+    //     duration: { total: 8077000 },
+    //     distance: {
+    //       total: 6.12,
+    //       veryActive: 2.93,
+    //       moderatelyActive: 1.19,
+    //       lightlyActive: 0.98,
+    //       sedentaryActive: 0
+    //     }
+    //   }
+    // ]
 
-    setInterval(function() {  // Callback function
-      client.publish('hikingMetrics', JSON.stringify(dummyMetrics));
-    }, 3000);
+    // setInterval(function() {  // Callback function
+    //   client.publish('hikingMetrics/' + loginUserId, JSON.stringify(dummyMetrics));
+    // }, 3000);
 
     // When a message is received, the function is executed
     client.on('message', function (topic, message) {

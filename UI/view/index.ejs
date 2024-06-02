@@ -51,6 +51,9 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
 
+    <script>
+      const loginUserId = '<%= user.id %>';
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.8/mqtt.min.js"></script>
     <script src="../view/mqtt.js"></script>
   </head>
@@ -189,7 +192,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="" alt="Profile Picture" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="../assets/img/avatars/7.png" alt="Profile Picture" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
