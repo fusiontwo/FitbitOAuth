@@ -32,8 +32,8 @@ passport.deserializeUser((obj, done) => {
 });
 
 passport.use(new FitbitStrategy({
-    clientID: '23PHBF',
-    clientSecret: 'ffc8252cd8b51f47e312c2819fef7141',
+    clientID: '',
+    clientSecret: '',
     callbackURL: "http://localhost:3000/auth/fitbit/callback"
   },
   function(accessToken, refreshToken, profile, done) {
