@@ -1,4 +1,4 @@
-// AuthServer.js
+// AuthServer.js (안 쓰는 코드)
 
 const express = require('express');
 const bodyParser = require('body-parser');
