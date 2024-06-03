@@ -2,7 +2,7 @@
 
 ### 주요 정보
 - ClientServer.js: Trackers 웹 애플리케이션 서버 (passport-fitbit-oauth2 모듈 사용)
-- AuthServer.js: Authorization Code와 Token을 발급하는 서버
+- AuthServer.js: (만들었는데 쓸 필요가 없었음. 사용 X) Authorization Code와 Token을 발급하는 서버 
 - /UI/view/login.html: 진입점. 로그인 버튼
 - /UI/view/index.ejs: FitbitOAuth 로그인에 성공하면 나오는 메인 화면
 - /UI/view/mqtt.js: index.ejs의 MQTT 프로토콜 구현.
