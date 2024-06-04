@@ -8,11 +8,11 @@ const fs = require('fs');
 const path = require('path');
 
 // File paths
-const ENDPOINT = "ahye6s6lodn9-ats.iot.ap-northeast-2.amazonaws.com";
+const ENDPOINT = "";
 const THING_NAME = 'raspberrypi';  // device name
-const CERTPATH = "/home/team6/pi-FitbitOAuth-main/raspberrypi.cert.pem"; // cert file path
-const KEYPATH = "/home/team6/FitbitOAuth-main/raspberrypi.private.key"; // key file path
-const CAROOTPATH = "/home/team6/FitbitOAuth-main/root-CA.crt"; // RootCaPem file path
+const CERTPATH = "/home/team6/fitbitOAuth/raspberrypi.cert.pem"; // cert file path
+const KEYPATH = "/home/team6/fitbitOAuth/raspberrypi.private.key"; // key file path
+const CAROOTPATH = "/home/team6/fitbitOAuth/root-CA.crt"; // RootCaPem file path
 const TOPIC = 'hikingMetrics/' + loginUserId; // topic name
 
 // MQTT client options
