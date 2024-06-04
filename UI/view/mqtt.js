@@ -1,8 +1,5 @@
 // Connect to Mosquitto MQTT broker
 
-// // Localhost
-// var client = mqtt.connect('wss://test.mosquitto.org:8081/mqtt');
-
 const mqtt = require('mqtt');
 const fs = require('fs');
 const path = require('path');
@@ -25,6 +22,9 @@ const options = {
     protocol: 'mqtts'
   };
   
+// // Localhost
+// var client = mqtt.connect('wss://test.mosquitto.org:8081/mqtt');
+
 // Connect to the MQTT broker
 const client = mqtt.connect(`mqtts://${ENDPOINT}:8883`, options);
 
@@ -37,76 +37,76 @@ client.on('connect', function () {
 
     // // Test sample and publishing (Need to change to an annotation form.)
     // const dummyMetrics = [
-    //   {
-    //     userId: 'BZPGGB',
-    //     date: '2024-04-30',
-    //     calories: { total: 111 },
-    //     steps: { total: 2076 },
-    //     duration: { total: 1640000 },
-    //     distance: {
-    //       total: 1.74,
-    //       veryActive: 0.29,
-    //       moderatelyActive: 0.61,
-    //       lightlyActive: 0.84,
-    //       sedentaryActive: 0
-    //     }
-    //   },
-    //   {
-    //     userId: 'AAPGGB',
-    //     date: '2024-05-01',
-    //     calories: { total: 242 },
-    //     steps: { total: 4256 },
-    //     duration: { total: 3077000 },
-    //     distance: {
-    //       total: 5.18,
-    //       veryActive: 2.93,
-    //       moderatelyActive: 1.19,
-    //       lightlyActive: 0.98,
-    //       sedentaryActive: 0
-    //     }
-    //   },
-    //   {
-    //     userId: 'TC15DF',
-    //     date: '2024-05-01',
-    //     calories: { total: 150 },
-    //     steps: { total: 5000 },
-    //     duration: { total: 3088800 },
-    //     distance: {
-    //       total: 1.74,
-    //       veryActive: 0.29,
-    //       moderatelyActive: 0.61,
-    //       lightlyActive: 0.84,
-    //       sedentaryActive: 0
-    //     }
-    //   },
-    //   {
-    //     userId: 'PP01C5',
-    //     date: '2024-05-03',
-    //     calories: { total: 105 },
-    //     steps: { total: 5000 },
-    //     duration: { total: 4077000 },
-    //     distance: {
-    //       total: 6.12,
-    //       veryActive: 2.93,
-    //       moderatelyActive: 1.19,
-    //       lightlyActive: 0.98,
-    //       sedentaryActive: 0
-    //     }
-    //   },
-    //   {
-    //     userId: 'RE10GB',
-    //     date: '2024-05-04',
-    //     calories: { total: 300 },
-    //     steps: { total: 8000 },
-    //     duration: { total: 8077000 },
-    //     distance: {
-    //       total: 6.12,
-    //       veryActive: 2.93,
-    //       moderatelyActive: 1.19,
-    //       lightlyActive: 0.98,
-    //       sedentaryActive: 0
-    //     }
-    //   }
+      // {
+      //   userId: 'BZPGGB',
+      //   date: '2024-04-30',
+      //   calories: { total: 111 },
+      //   steps: { total: 2076 },
+      //   duration: { total: 1640000 },
+      //   distance: {
+      //     total: 1.74,
+      //     veryActive: 0.29,
+      //     moderatelyActive: 0.61,
+      //     lightlyActive: 0.84,
+      //     sedentaryActive: 0
+      //   }
+      // },
+      // {
+      //   userId: 'AAPGGB',
+      //   date: '2024-05-01',
+      //   calories: { total: 242 },
+      //   steps: { total: 4256 },
+      //   duration: { total: 3077000 },
+      //   distance: {
+      //     total: 5.18,
+      //     veryActive: 2.93,
+      //     moderatelyActive: 1.19,
+      //     lightlyActive: 0.98,
+      //     sedentaryActive: 0
+      //   }
+      // },
+      // {
+      //   userId: 'TC15DF',
+      //   date: '2024-05-01',
+      //   calories: { total: 150 },
+      //   steps: { total: 5000 },
+      //   duration: { total: 3088800 },
+      //   distance: {
+      //     total: 1.74,
+      //     veryActive: 0.29,
+      //     moderatelyActive: 0.61,
+      //     lightlyActive: 0.84,
+      //     sedentaryActive: 0
+      //   }
+      // },
+      // {
+      //   userId: 'PP01C5',
+      //   date: '2024-05-03',
+      //   calories: { total: 105 },
+      //   steps: { total: 5000 },
+      //   duration: { total: 4077000 },
+      //   distance: {
+      //     total: 6.12,
+      //     veryActive: 2.93,
+      //     moderatelyActive: 1.19,
+      //     lightlyActive: 0.98,
+      //     sedentaryActive: 0
+      //   }
+      // },
+      // {
+      //   userId: 'RE10GB',
+      //   date: '2024-05-04',
+      //   calories: { total: 300 },
+      //   steps: { total: 8000 },
+      //   duration: { total: 8077000 },
+      //   distance: {
+      //     total: 6.12,
+      //     veryActive: 2.93,
+      //     moderatelyActive: 1.19,
+      //     lightlyActive: 0.98,
+      //     sedentaryActive: 0
+      //   }
+      // }
     // ]
 
     // setInterval(function() {  // Callback function
