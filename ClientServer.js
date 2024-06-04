@@ -9,7 +9,7 @@ const app = express();
 
 const CLIENT_ID = ""
 const CLIENT_SECRET = ""
-const CALLBACK_URL = ""
+const CALLBACK_URL = "https://{InsertNgrokIP}/auth/fitbit/callback"
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'UI', 'view'));
