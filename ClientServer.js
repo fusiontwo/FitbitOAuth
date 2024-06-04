@@ -7,6 +7,10 @@ const FitbitStrategy = require('passport-fitbit-oauth2').FitbitOAuth2Strategy;
 const path = require('path')
 const app = express();
 
+const CLIENT_ID = ""
+const CLIENT_SECRET = ""
+const CALLBACK_URL = ""
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'UI', 'view'));
 app.use(express.static(path.join(__dirname, 'UI')));
@@ -32,9 +36,9 @@ passport.deserializeUser((obj, done) => {
 });
 
 passport.use(new FitbitStrategy({
-    clientID: '',
-    clientSecret: '',
-    callbackURL: "http://localhost:3000/auth/fitbit/callback"
+    clientID: CLIENT_ID,
+    clientSecret: CLIENT_SECRET,
+    callbackURL: CALLBACK_URL
   },
   function(accessToken, refreshToken, profile, done) {
     
@@ -75,13 +79,7 @@ app.get('/auth/fitbit/success', (req, res) => {
     if (!req.isAuthenticated()) {
         return res.redirect('/auth/fitbit/failure');
     }
-    res.render('index', { user: req.user });  
-    // res.send(`
-    //     <p>Welcome, ${req.user.id}</p>
-    //     <p>Access Token: ${req.user.accessToken}</p>
-    //     <p>Refresh Token: ${req.user.refreshToken}</p>
-    //     <pre>${JSON.stringify(req.user, null, 2)}</pre>
-    // `);        
+    res.render('index', { user: req.user });        
 });
 
 app.get('/auth/fitbit/failure', (req, res) => {
