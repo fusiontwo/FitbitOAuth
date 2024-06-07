@@ -29,3 +29,6 @@
 - path
 - body-parser
 - jsonwebtoken
+- mqtt
+- socket.io
+  
