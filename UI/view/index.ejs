@@ -50,15 +50,54 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
-
-    <script>
-      const loginUserId = '<%= user.id %>';
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.8/mqtt.min.js"></script>
-    <script src="../view/mqtt.js"></script>
   </head>
 
   <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+    <script>
+      var socket = io();
+      socket.on('mqttMessage', function(message) {
+        const metrics = JSON.parse(message);
+        const tableRows = metrics.map((metric, index) => {
+          const tableRow = document.createElement('tr');
+
+          const rankingColumn = document.createElement('td');
+          rankingColumn.classList.add('ranking');
+          rankingColumn.textContent = index + 1;
+          tableRow.appendChild(rankingColumn);
+
+          const userIdColumn = document.createElement('td');
+          userIdColumn.classList.add('userId');
+          userIdColumn.innerHTML = metric.userId;
+          tableRow.appendChild(userIdColumn);
+
+          const weeklyHKTmColumn = document.createElement('td');
+          weeklyHKTmColumn.classList.add('weeklyHkTm');
+          const hours = Math.floor(metric.duration.total / 3600000);
+          const minutes = Math.floor((metric.duration.total % 3600000) / 60000);
+          weeklyHKTmColumn.textContent = hours + " 시간 " + minutes + " 분";
+          tableRow.appendChild(weeklyHKTmColumn);
+
+          const weeklyHkDistColumn = document.createElement('td');
+          weeklyHkDistColumn.classList.add('weeklyHkDist');
+          weeklyHkDistColumn.innerHTML = metric.distance.total + " km";
+          tableRow.appendChild(weeklyHkDistColumn);
+
+          const caloryColumn = document.createElement('td');
+          caloryColumn.classList.add('calories');
+          caloryColumn.innerHTML = metric.calories.total + " 칼로리";
+          tableRow.appendChild(caloryColumn);
+
+          return tableRow;
+        });
+
+        const tableBody = document.querySelector('table > tbody');
+        tableBody.innerHTML = '';
+        tableRows.forEach((row) => {
+          tableBody.append(row);
+        });
+      });
+    </script>
 
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
