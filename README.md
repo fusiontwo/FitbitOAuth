@@ -33,6 +33,7 @@
 - socket.io
 
 ### 파일 디렉토리 경로
-![](https://velog.velcdn.com/images/fusiontwo/post/94b4ff68-a60d-4a73-ba62-c7a67b8fd666/image.png)
-![](https://velog.velcdn.com/images/fusiontwo/post/fe88cba9-b88f-42a8-84d6-070c78444c34/image.png)
-![](https://velog.velcdn.com/images/fusiontwo/post/5c634f10-bb28-4c94-9500-a2a323dbbcbd/image.png)
+![fitbitOAuth1](https://github.com/fusiontwo/FitbitOAuth/assets/101881124/449b8746-1b44-4078-9966-e59dc200eaeb)
+![fitbitOAuth3](https://github.com/fusiontwo/FitbitOAuth/assets/101881124/70b3f37b-f9f3-4891-8f0c-bddc876d037b)
+![fitbitOAuth2](https://github.com/fusiontwo/FitbitOAuth/assets/101881124/2bf41ec5-4048-4c71-bc47-e3abe192766b)
+
