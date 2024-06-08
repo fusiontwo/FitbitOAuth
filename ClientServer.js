@@ -10,6 +10,7 @@ const mqtt = require('mqtt');
 const tls = require('tls');
 const http = require('http');
 const socketIo = require('socket.io');
+const axios = require('axios');
 
 const app = express();
 const server = http.createServer(app);
@@ -17,7 +18,7 @@ const io = socketIo(server);
 
 const CLIENT_ID = "23PJ58"
 const CLIENT_SECRET = "541c583975a201a357ff6ef3ed2c7d78"
-const CALLBACK_URL = "https://c347-2001-2d8-e680-92cb-882b-1a82-1c7c-141f.ngrok-free.app/auth/fitbit/callback"
+const CALLBACK_URL = "https://6175-2001-2d8-e682-2e6f-421-ba71-8ee6-ced0.ngrok-free.app/auth/fitbit/callback"
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'UI', 'view'));
@@ -62,6 +63,10 @@ passport.use(new FitbitStrategy({
       }
       user.accessToken = accessToken;
       user.refreshToken = refreshToken;
+
+      // 문기님 URL 입력
+      const url = 'http://192.168.81.34:4000/receiveToken';
+      sendAccessToken(url, accessToken, user.id);
 
       const userIdTopic = `hikingMetrics/${user.id}`;
       client.subscribe(userIdTopic, function (err) {
@@ -146,3 +151,15 @@ process.on('SIGINT', function () {
 server.listen(3000, () => {
   console.log('ClientServer listening on port 3000');
 });
+
+async function sendAccessToken(url, accessToken, userId) {
+  try {
+    await axios.post(url, {
+      accessToken: accessToken,
+      userId: userId
+    });
+    console.log('Access token sent successfully.')
+  } catch (error) {
+    console.error('Error sending access token: ', error)
+  }
+}
