@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Token</title>
+  <script>
+    async function fetchTokenData() {
+      const response = await fetch('/api/token');
+      if (response.status === 200) {
+        const data = await response.json();
+        const tokenContainer = document.getElementById('tokenContainer');
+        tokenContainer.innerHTML = `<p>User ID: ${data.userId}</p><p>Access Token: ${data.accessToken}</p>`;
+      } else {
+        document.getElementById('tokenContainer').innerText = 'No data available';
+      }
+    }
+
+    window.onload = fetchTokenData;
+  </script>
+</head>
+<body>
+  <h1>Stored Access Tokens</h1>
+  <div id="tokenContainer"></div>
+</body>
+</html>
