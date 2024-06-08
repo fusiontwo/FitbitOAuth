@@ -31,4 +31,8 @@
 - jsonwebtoken
 - mqtt
 - socket.io
-  
+
+### 파일 디렉토리 경로
+![](https://velog.velcdn.com/images/fusiontwo/post/94b4ff68-a60d-4a73-ba62-c7a67b8fd666/image.png)
+![](https://velog.velcdn.com/images/fusiontwo/post/fe88cba9-b88f-42a8-84d6-070c78444c34/image.png)
+![](https://velog.velcdn.com/images/fusiontwo/post/5c634f10-bb28-4c94-9500-a2a323dbbcbd/image.png)
