@@ -65,8 +65,11 @@ passport.use(new FitbitStrategy({
       user.refreshToken = refreshToken;
 
       // 문기님 URL 입력
-      const url = 'http://192.168.81.34:4000/receiveToken';
-      sendAccessToken(url, accessToken, user.id);
+      // const url = 'http://192.168.81.34:4000/receiveToken';
+      // sendAccessToken(url, accessToken, user.id);
+
+      const url = 'https://mq4g0s7lyi.execute-api.ap-northeast-2.amazonaws.com/device';
+      sendAccessToken(url, accessToken);
 
       const userIdTopic = `hikingMetrics/${user.id}`;
       client.subscribe(userIdTopic, function (err) {
@@ -152,14 +155,30 @@ server.listen(3000, () => {
   console.log('ClientServer listening on port 3000');
 });
 
-async function sendAccessToken(url, accessToken, userId) {
+// async function sendAccessToken(url, accessToken, userId) {
+//   try {
+//     await axios.post(url, {
+//       accessToken: accessToken,
+//       userId: userId
+//     });
+//     console.log('Access token sent successfully.')
+//   } catch (error) {
+//     console.error('Error sending access token: ', error)
+//   }
+// }
+
+async function sendAccessToken(url, accessToken) {
   try {
     await axios.post(url, {
-      accessToken: accessToken,
-      userId: userId
+      "accessToken": accessToken
+    }, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
-    console.log('Access token sent successfully.')
+    console.log('Device registered successfully.');
   } catch (error) {
-    console.error('Error sending access token: ', error)
+     console.error('Error sending access token: ', error)
   }
 }
+
